@@ -8,7 +8,7 @@ const createStyleElement = (element: string) => (styles: Styles) => (
   selector: string
 ) =>
   class extends React.Component<{ children?: React.Node }> {
-    static displayName = `Styled(${element}.${selector})`
+    static displayName = `styled(${selector})`
     render() {
       const { children, ...rest } = this.props
       return React.createElement(

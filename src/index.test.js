@@ -17,5 +17,5 @@ test('className', () => {
 
 test('displayName', () => {
   const wrapper = setup()
-  expect(wrapper.name()).toBe('Styled(div.center)')
+  expect(wrapper.name()).toBe('styled(center)')
 })
