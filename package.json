@@ -9,6 +9,8 @@
     "node": ">=6"
   },
   "main": "lib/index.js",
+  "jsnext:main": "lib/index.esm.js",
+  "module": "lib/index.esm.js",
   "scripts": {
     "add-contributor": "all-contributors add",
     "precommit": "lint-staged",
@@ -17,7 +19,8 @@
     "lint": "eslint .",
     "test": "jest",
     "prepare": "yarn build && yarn build:flow",
-    "build": "yarn build:lib && yarn build:flow",
+    "build": "yarn rollup && yarn build:flow",
+    "rollup": "rollup -c",
     "build:lib": "babel src -d lib --ignore '**/*.test.js'",
     "build:flow": "flow-copy-source -v -i '*.test.js' src lib",
     "test:watch": "jest --watch",
@@ -65,7 +68,10 @@
     "lint-staged": "^6.1.0",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "rollup": "^0.55.3",
+    "rollup-plugin-babel": "^4.0.0-beta.0",
+    "rollup-plugin-flow": "^1.1.1"
   },
   "peerDependencies": {
     "react": ">=15"
