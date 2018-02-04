@@ -1,0 +1,81 @@
+{
+  "name": "styled-style",
+  "version": "0.0.0",
+  "description": "css modules like styled-components",
+  "license": "MIT",
+  "repository": "akameco/styled-style",
+  "author": "akameco <akameco.t@gmail.com> (akameco.github.io)",
+  "engines": {
+    "node": ">=6"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "add-contributor": "all-contributors add",
+    "precommit": "lint-staged",
+    "fmt": "prettier --write '**/*.{js,json,md}'",
+    "flow": "flow",
+    "lint": "eslint .",
+    "test": "jest",
+    "prepare": "yarn build && yarn build:flow",
+    "build": "yarn build:lib && yarn build:flow",
+    "build:lib": "babel src -d lib --ignore '**/*.test.js'",
+    "build:flow": "flow-copy-source -v -i '*.test.js' src lib",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage --ci --runInBand",
+    "test:ci": "yarn flow && yarn lint && yarn test:cov"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "react",
+    "styled-components",
+    "styled",
+    "css",
+    "css-moduels",
+    "css-module"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "@babel/preset-flow": "^7.0.0-beta.39",
+    "@babel/preset-react": "^7.0.0-beta.39",
+    "all-contributors-cli": "^4.10.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^22.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "4.17.0",
+    "eslint-config-precure": "^2.0.0",
+    "flow-bin": "^0.64.0",
+    "flow-copy-source": "^1.2.2",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4",
+    "jest-cli": "^22.1.4",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "jest": {
+    "setupFiles": [
+      "raf/polyfill",
+      "<rootDir>/jestSetup.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib"
+    ]
+  }
+}

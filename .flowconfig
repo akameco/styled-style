@@ -1,0 +1,13 @@
+[ignore]
+coverage
+lib
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
