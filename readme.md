@@ -22,6 +22,8 @@ $ yarn add styled-style
 
 ## Usage
 
+styles.module.css
+
 ```css
 .center {
   display: flex;
@@ -41,7 +43,7 @@ $ yarn add styled-style
 
 ```js
 import { styledStyle } from 'styled-style'
-import styles from './styles.css'
+import styles from './styles.module.css'
 
 const { div, button } = styledStyle(styles)
 
@@ -59,6 +61,10 @@ render(
 ## API
 
 ### `styledStyle(styles: {[key: string]: string})`
+
+## Examples
+
+[akameco/styled-style-example](https://github.com/akameco/styled-style-example)
 
 ## Contributors
 
