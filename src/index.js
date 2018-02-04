@@ -6,13 +6,18 @@ type Styles = { [key: string]: string }
 
 const createStyleElement = (element: string) => (styles: Styles) => (
   selector: string
-  // eslint-disable-next-line react/display-name
-) => ({ children, ...rest }: { children?: React.Node }) =>
-  React.createElement(
-    element,
-    { className: styles[selector], ...rest },
-    children
-  )
+) =>
+  class extends React.Component<{ children?: React.Node }> {
+    static displayName = `Styled(${element}.${selector})`
+    render() {
+      const { children, ...rest } = this.props
+      return React.createElement(
+        element,
+        { className: styles[selector], ...rest },
+        children
+      )
+    }
+  }
 
 export const styledStyle = (styles: Styles) =>
   elements.reduce((acc, el) => {

@@ -1,12 +1,21 @@
 // @flow
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { styledStyle } from '.'
 
-test('className', () => {
+function setup() {
   const styles = { center: 'center' }
   const { div } = styledStyle(styles)
   const Center = div('center')
-  const wrapper = shallow(<Center />)
-  expect(wrapper.prop('className')).toBe('center')
+  return mount(<Center />)
+}
+
+test('className', () => {
+  const wrapper = setup()
+  expect(wrapper.childAt(0).prop('className')).toBe('center')
+})
+
+test('displayName', () => {
+  const wrapper = setup()
+  expect(wrapper.name()).toBe('Styled(div.center)')
 })
