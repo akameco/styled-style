@@ -31,13 +31,18 @@ styles.module.css
   align-items: center;
 }
 
-.input {
-  padding: 0.5em;
-  margin: 0.5em;
-  color: palevioletred;
-  background: papayawhip;
-  border: none;
+.btn {
   border-radius: 3px;
+  padding: 0.25em 1em;
+  margin: 0 1em;
+  background: transparent;
+  color: palevioletred;
+  border: 2px solid palevioletred;
+}
+
+.primary {
+  background: palevioletred;
+  color: white;
 }
 ```
 
@@ -48,12 +53,13 @@ import styles from './styles.module.css'
 const { div, button } = styledStyle(styles)
 
 const Center = div('center')
-const Input = button('input')
+const Button = button('btn')
+const PrimaryButton = button(['btn', 'primary'])
 
 render(
   <Center>
-    <Input type="text" placeholder="akameco" />
-    <Input type="text" value="styled-components" />
+    <Button>Normal Button</Button>
+    <PrimaryButton>Primary Button</PrimaryButton>
   </Center>
 )
 ```
