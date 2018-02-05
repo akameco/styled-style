@@ -3,6 +3,15 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { styledStyle } from '.'
 
+let spy
+beforeEach(() => {
+  spy = jest.spyOn(console, 'error').mockImplementation(x => x)
+})
+afterEach(() => {
+  spy.mockReset()
+  spy.mockRestore()
+})
+
 test('when single string', () => {
   const { div } = styledStyle({ center: 'css-module-center' })
   const Center = div('center')
@@ -45,4 +54,22 @@ test('with no props', () => {
   const wrapper = mount(<Button color="ignore">Normal Button</Button>)
   expect(wrapper.name()).toBe('styled(btn)')
   expect(wrapper.childAt(0).prop('className')).toBe('css-button')
+})
+
+describe('warning', () => {
+  test('when selector not found', () => {
+    const { button } = styledStyle({})
+    const Button = button('btn')
+    mount(<Button>Normal Button</Button>)
+    expect(spy.mock.calls[0][0]).toContain(
+      '.btn selector not found in css file.'
+    )
+  })
+
+  test('when selectors not found', () => {
+    const { div } = styledStyle({ c: 'c' })
+    const Comp = div(['a', 'b', 'c'])
+    mount(<Comp />)
+    expect(spy.mock.calls[0][0]).toContain('.a selector not found in css file.')
+  })
 })

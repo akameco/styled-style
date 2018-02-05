@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import warning from 'warning'
 import elements from './elements'
 
 type Styles = { [key: string]: string }
@@ -15,22 +16,32 @@ const createStyleElement = (element: string) => (styles: Styles) => (
     .filter(v => typeof v === 'string')
     .join(' ')
 
+  function createClassname(_selector: Selector, rest): string {
+    if (Array.isArray(_selector)) {
+      return _selector
+        .map(v => {
+          if (typeof v === 'function') {
+            const result = v(rest)
+            return result && styles[result]
+          }
+          warning(styles[v], `.${v} selector not found in css file.`)
+          return styles[v]
+        })
+        .filter(Boolean)
+        .join(' ')
+    }
+
+    warning(styles[_selector], `.${_selector} selector not found in css file.`)
+
+    return styles[_selector]
+  }
+
   return class extends React.Component<{ children?: React.Node }> {
     static displayName = `styled(${display})`
     render() {
       const { children, ...rest } = this.props
-      const className = Array.isArray(selector)
-        ? selector
-            .map(s => {
-              if (typeof s === 'function') {
-                const result = s(rest)
-                return result && styles[result]
-              }
-              return styles[s]
-            })
-            .filter(Boolean)
-            .join(' ')
-        : styles[selector]
+      const className = createClassname(selector, rest)
+
       return React.createElement(element, { className, ...rest }, children)
     }
   }
