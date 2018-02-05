@@ -67,11 +67,6 @@ render(
 ### Passed props
 
 ```js
-import { styledStyle } from 'styled-style'
-import styles from './styles.module.css'
-
-const { button } = styledStyle(styles)
-
 const Button = button(['btn', p => p.color === 'primary' && 'primary'])
 
 render(
