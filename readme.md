@@ -64,7 +64,7 @@ render(
 )
 ```
 
-### Adapting based on props
+### Passed props
 
 ```js
 import { styledStyle } from 'styled-style'
