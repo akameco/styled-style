@@ -64,6 +64,24 @@ render(
 )
 ```
 
+### Adapting based on props
+
+```js
+import { styledStyle } from 'styled-style'
+import styles from './styles.module.css'
+
+const { button } = styledStyle(styles)
+
+const Button = div(['btn', p => p.color === 'primary' && 'primary'])
+
+render(
+  <div>
+    <Button>Normal Button</Button>
+    <Button color="primary">Primary Button</Button>
+  </div>
+)
+```
+
 ## API
 
 ### `styledStyle(styles: {[key: string]: string})`
