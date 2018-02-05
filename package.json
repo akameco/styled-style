@@ -44,7 +44,9 @@
     "css-moduels",
     "css-module"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "warning": "^3.0.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
@@ -71,7 +73,8 @@
     "react-dom": "^16.2.0",
     "rollup": "^0.55.3",
     "rollup-plugin-babel": "^4.0.0-beta.0",
-    "rollup-plugin-flow": "^1.1.1"
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-node-resolve": "^3.0.2"
   },
   "peerDependencies": {
     "react": ">=15"
