@@ -72,7 +72,7 @@ import styles from './styles.module.css'
 
 const { button } = styledStyle(styles)
 
-const Button = div(['btn', p => p.color === 'primary' && 'primary'])
+const Button = button(['btn', p => p.color === 'primary' && 'primary'])
 
 render(
   <div>
