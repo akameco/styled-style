@@ -11,6 +11,7 @@
   "main": "lib/index.js",
   "jsnext:main": "lib/index.esm.js",
   "module": "lib/index.esm.js",
+  "types": "index.d.ts",
   "scripts": {
     "add-contributor": "all-contributors add",
     "precommit": "lint-staged",
@@ -34,7 +35,8 @@
     ]
   },
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "keywords": [
     "react",
@@ -55,6 +57,7 @@
     "@babel/preset-env": "^7.0.0-beta.39",
     "@babel/preset-flow": "^7.0.0-beta.39",
     "@babel/preset-react": "^7.0.0-beta.39",
+    "@types/react": "^16.0.36",
     "all-contributors-cli": "^4.10.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^22.2.0",
