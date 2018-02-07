@@ -18,6 +18,15 @@
         "test",
         "infra"
       ]
+    },
+    {
+      "login": "nju33",
+      "name": "純",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/15901038?v=4",
+      "profile": "https://nju33.work",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
