@@ -57,7 +57,7 @@ test('with no props', () => {
 })
 
 describe('warning', () => {
-  test('when selector not found', () => {
+  it('when selector not found', () => {
     const { button } = styledStyle({})
     const Button = button('btn')
     mount(<Button>Normal Button</Button>)
@@ -66,7 +66,7 @@ describe('warning', () => {
     )
   })
 
-  test('when selectors not found', () => {
+  it('when selectors not found', () => {
     const { div } = styledStyle({ c: 'c' })
     const Comp = div(['a', 'b', 'c'])
     mount(<Comp />)
