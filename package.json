@@ -17,7 +17,7 @@
     "precommit": "lint-staged",
     "fmt": "prettier --write '**/*.{js,json,md}'",
     "flow": "flow",
-    "lint": "eslint .",
+    "lint": "eslint --fix .",
     "test": "jest",
     "prepare": "yarn build && yarn build:flow",
     "build": "yarn rollup && yarn build:flow",
