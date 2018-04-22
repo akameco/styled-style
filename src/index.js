@@ -4,8 +4,7 @@ import warning from 'warning'
 import elements from './elements'
 
 type Styles = { [key: string]: string }
-// eslint-disable-next-line flowtype/no-weak-types
-type _Selector = string | ((props: *) => any)
+type _Selector = string | ((props: *) => *)
 type Selector = string | _Selector[]
 
 const createStyleElement = (element: string) => (styles: Styles) => (
@@ -16,7 +15,8 @@ const createStyleElement = (element: string) => (styles: Styles) => (
     .filter(v => typeof v === 'string')
     .join(' ')
 
-  function createClassname(_selector: Selector, rest): string {
+  // eslint-disable-next-line flowtype/no-weak-types
+  function createClassname(_selector: Selector, rest: any): string {
     if (Array.isArray(_selector)) {
       return _selector
         .map(v => {
