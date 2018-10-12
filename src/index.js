@@ -5,7 +5,7 @@ import elements from './elements'
 
 type Styles = { [key: string]: string }
 type _Selector = string | ((props: *) => *)
-type Selector = string | _Selector[]
+type Selector = string | Array<_Selector>
 
 const createStyleElement = (element: string) => (styles: Styles) => (
   selector: Selector
