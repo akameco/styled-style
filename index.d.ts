@@ -12,7 +12,7 @@ declare function styledStyle<S extends styledStyle.Styles, C extends keyof S>(
 export { styledStyle }
 
 declare namespace styledStyle {
-  export type Elements = keyof JSX.IntrinsicElements
+  export type Elements = keyof React.ReactDOM
 
   export interface Styles {
     [key: string]: string

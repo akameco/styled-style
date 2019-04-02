@@ -2,3 +2,4 @@
 **/flow-typed/**
 **/lib/**
 rollup.config.js
+index.d.ts
