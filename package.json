@@ -1,6 +1,6 @@
 {
   "name": "styled-style",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "css modules like styled-components",
   "license": "MIT",
   "repository": "akameco/styled-style",
